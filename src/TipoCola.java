@@ -1,0 +1,8 @@
+
+public enum TipoCola {
+	COLA_MESA,
+	COLA_SOPORTE,
+	COLA_DESARROLLO,
+	COLA_ATENDIDOS
+
+}
