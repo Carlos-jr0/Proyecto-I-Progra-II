@@ -1,3 +1,5 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -7,11 +9,12 @@ public class Bitacora {
 	private String mensaje;
 	private TipoEvento evento;
 	
+	//DateFormat dateFormat=new SimpleDateFormat("HH:mm:ss");
+	//Date date=new Date();
 	
-	public Bitacora(String nitSoporte, Date fechaHora, String mensaje,
-			TipoEvento evento) {
+	public Bitacora(String nitSoporte, String mensaje,TipoEvento evento) {
 		this.nitSoporte = nitSoporte;
-		this.fechaHora = fechaHora;
+		this.fechaHora = new Date();
 		this.mensaje = mensaje;
 		this.evento = evento;
 	}
@@ -38,13 +41,6 @@ public class Bitacora {
 	}
 	public void setEvento(TipoEvento evento) {
 		this.evento = evento;
-	}
-	
-	public String toString(){
-		return "Bitacora{" + "NIT Soporte: " 
-				+ nitSoporte + "Fecha y Hora: " 
-				+ fechaHora + "Mensaje: " 
-				+ mensaje + "Tipo Evento: " + evento;
 	}
 
 }

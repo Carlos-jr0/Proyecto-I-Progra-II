@@ -1,24 +1,26 @@
 import java.util.ArrayList;
+import java.util.List;
 
 
-public abstract class ColaServicio {
-	private ArrayList<Ticket> cola;
+public class ColaServicio {
+	private List<Ticket> cola=new ArrayList<Ticket>();
 	private TipoCola tipo;
-	
-	public ColaServicio(){
-		cola=new ArrayList();
-	}
-	public TipoCola getTipo() {
-		return tipo;
-	}
-	public void setTipo(TipoCola tipo) {
-		this.tipo = tipo;
-	}
+
 	
 	public void agregarTicket(Ticket ticket){
 		cola.add(ticket);
 	}
 	
-	abstract public void quitar();
-
+	public void asignarTicket(String nitUsuario, String rol){
+		Json json=new Json(nitUsuario, rol);
+		cola.add(json);
+		
+	}
+	
+	public Ticket quitar(){
+		Ticket ticket=cola.get(cola.size() -1);
+		cola.remove(ticket);
+		return ticket;
+	}
+		
 }

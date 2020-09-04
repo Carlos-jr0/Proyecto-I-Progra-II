@@ -1,26 +1,22 @@
-import java.io.FileReader;
+
 import java.util.ArrayList;
-import java.util.Iterator;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
+import java.util.List;
 
 public class Ticket {
 	private String nitUsuario;
 	private int id;
 	private String problema;
 	private String estado; //Creado
-	ArrayList <Bitacora> bitacora;
+	private List <Bitacora> bitacora;
 	
 	
-	public Ticket(String nitUsuario, int id,String problema, String estado) {
+	public Ticket(String nitUsuario, int id, String problema, String estado, String mensaje) {
 		bitacora=new ArrayList();
 		this.nitUsuario = nitUsuario;
 		this.id = id;
 		this.problema=problema;
 		this.estado = estado;
+		bitacora.add(new Bitacora(nitUsuario, mensaje, TipoEvento.CREAR_TICKET));
 	}
 	public String getNitUsuario() {
 		return nitUsuario;
@@ -48,40 +44,9 @@ public class Ticket {
 		this.problema = problema;
 	}
 	
-	public static void leerJson()throws Exception{
-		
-		try {
-			JSONParser parser=new JSONParser();
-		    Object object = parser.parse(new FileReader("C:\\Users\\Alvarado Montes\\Desktop\\Progra II\\informacion.json"));
-		  
-		            
-		            JSONObject config = (JSONObject) object;
-		            String noTicket = (String)config.get("ticket");
-		            System.out.println("Ticket No."+ noTicket);
-		            
-		            String nitUsuario =(String)config.get("nitUsuario");
-		            System.out.println("Nit Usuario: " + nitUsuario);
-		            
-		            String problema = (String)config.get("problema");
-		            System.out.println("Problema: " +problema);
-		            
-		            String cola = (String)config.get("cola");
-		            System.out.println("Cola: " +cola);
-		            System.out.println("\n\n");
-		        
-		            JSONArray longitud=(JSONArray) config.get("informacion json");
-		            System.out.println("informacion json");
-		            
-		            Iterator iterator= longitud.iterator();
-		            while(iterator.hasNext()){
-		            	System.out.println(iterator.next());
-		            }
-		}catch(Exception e){      	
-			System.err.println("Leyendo el fichero de informacion " + e.toString());
-		}finally{
-			
-		}
-}
+	public void agregarBitacora(String mensaje, TipoEvento evento){
+		bitacora.add(new Bitacora(nitUsuario, mensaje, evento));
+	}
 		
 	public String toString(){
 		String temp= "Ticket{" + "NIT Usuario: " + nitUsuario + "ID: " + id +"Problema: " + problema + "Estado: " + estado;
