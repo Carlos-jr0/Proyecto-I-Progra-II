@@ -10,14 +10,14 @@ public class Ticket {
 	private List <Bitacora> bitacora;
 	
 	
-	public Ticket(String nitUsuario, int id, String problema, String estado, String mensaje) {
+	/*public Ticket(String nitUsuario, int id, String problema, String estado, String mensaje) {
 		bitacora=new ArrayList();
 		this.nitUsuario = nitUsuario;
 		this.id = id;
 		this.problema=problema;
 		this.estado = estado;
 		bitacora.add(new Bitacora(nitUsuario, mensaje, TipoEvento.CREAR_TICKET));
-	}
+	}*/
 	public String getNitUsuario() {
 		return nitUsuario;
 	}
