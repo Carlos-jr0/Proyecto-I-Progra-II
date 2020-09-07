@@ -47,14 +47,10 @@ public class Json {
 				Object object=parser.parse(new FileReader("informacion.json"));
 				JSONArray array=(JSONArray) object;
 				
-				for (int i=0; i<array.size(); i++){
-	                JSONObject jsonObject = (JSONObject)array.get(i);
+	                JSONObject jsonObject = (JSONObject)array.get(0);
 	                JSONArray jsonArray = (JSONArray) jsonObject.get("ticket" +numTicket);
-	                if(i<=array.size()){
-	                    System.out.println("Ticket: " +jsonArray);
-	                }
-				}
-				
+	                   System.out.println("Ticket: " +jsonArray);
+	             
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

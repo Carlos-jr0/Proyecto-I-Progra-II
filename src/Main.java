@@ -9,18 +9,18 @@ public class Main {
 		Json informacionJson =new Json();
 		/*Accedemos a la informacion y metodos de la clase ColaServicio*/
 		ColaServicio cola=new ColaServicio();
+		Ticket ticket=new Ticket();
 		int opc=0;
 		/*Menu de Opciones*/
 		do {
 			System.out.println("SISTEMA DE SOLICITUD DE BOLETOS DE CODIGO ABIERTO (OTRS)");
 			System.out.println("1.............Mostrar Listadado de Tickets");
 			System.out.println("2.............Buscar Ticket");
-			System.out.println("3.............Asignar Ticket");
 			System.out.println("4.............Crear Ticket");
 			System.out.println("5.............Listar Tickets creados");
-			System.out.println("5.............Agregar a Bitacora");
-			System.out.println("6.............Mostrar Bitacora");
-			System.out.println("7.............Salir");
+			System.out.println("6.............Agregar a Bitacora");
+			System.out.println("7.............Mostrar Bitacora");
+			System.out.println("0.............Salir");
 			System.out.print("Ingrese su opcion: ");
 			opc=sc.nextInt();
 			System.out.println("-----------------------");
@@ -34,7 +34,7 @@ public class Main {
 					e.printStackTrace();
 				}
 				break;
-				//caso 2
+			//caso 2
 			case 2:
 				try {
 					informacionJson.buscarTicket();
@@ -43,20 +43,29 @@ public class Main {
 					e.printStackTrace();
 				}
 				break;
-				//caso 3
 			case 3:
-				cola=new ColaServicio();
-				//cola.AsignarTicket();
-				break;
-				//caso 4
-			case 4:
 				cola.crearTicket();
 				break;
 				//caso 5
-			case 5:
+			case 4:
 				cola.VerTicketsCreados();
 				break;
+				/*Caso 5 imcompleto*/
+			case 5:
+				String mensaje;
+				System.out.println("ingrese el mensaje");
+				mensaje=sc.nextLine();
+				System.out.println("Ingrese el tipo de evento");
+				TipoEvento evento = null;
+				ticket.agregarBitacora(mensaje, evento.CREAR_TICKET);
+				/*caso 6 incompleto*/
+			case 6:
+				ticket.toString();
+				break;
 			default:
+				if (opc != 0) {
+					System.out.println("Opcion invalida");
+				}
 				break;
 			}
 			
