@@ -35,6 +35,7 @@ public class ColaServicio {
 		System.out.println("Problema: "+ tik.getProblema());
 		System.out.println("Estado: "+ tik.getEstado());
 		System.out.println("-------------------------");
+		
 	/*System.out.println("NIT USUARIO\t\tID\tPROBLEMA\t\t\tESTADO");
 		for(Ticket tik : cola){
 			System.out.format(tik.getNitUsuario(), tik.getId(),

@@ -4,6 +4,4 @@ public enum TipoEvento {
 	ASIGNAR_TICKET,
 	MOVER_A_COLA,
 	SOLUCION,
-
-
 }

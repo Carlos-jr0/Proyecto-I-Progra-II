@@ -16,10 +16,10 @@ public class Main {
 			System.out.println("SISTEMA DE SOLICITUD DE BOLETOS DE CODIGO ABIERTO (OTRS)");
 			System.out.println("1.............Mostrar Listadado de Tickets");
 			System.out.println("2.............Buscar Ticket");
-			System.out.println("4.............Crear Ticket");
-			System.out.println("5.............Listar Tickets creados");
-			System.out.println("6.............Agregar a Bitacora");
-			System.out.println("7.............Mostrar Bitacora");
+			System.out.println("3.............Crear Ticket");
+			System.out.println("4.............Listar Tickets creados");
+			System.out.println("5.............Agregar a Bitacora");
+			System.out.println("6.............Mostrar Bitacora");
 			System.out.println("0.............Salir");
 			System.out.print("Ingrese su opcion: ");
 			opc=sc.nextInt();
@@ -43,14 +43,15 @@ public class Main {
 					e.printStackTrace();
 				}
 				break;
+			//caso 3
 			case 3:
 				cola.crearTicket();
 				break;
-				//caso 5
+			//caso 4
 			case 4:
 				cola.VerTicketsCreados();
 				break;
-				/*Caso 5 imcompleto*/
+			/*Caso 5 imcompleto*/
 			case 5:
 				String mensaje;
 				System.out.println("ingrese el mensaje");
@@ -58,7 +59,7 @@ public class Main {
 				System.out.println("Ingrese el tipo de evento");
 				TipoEvento evento = null;
 				ticket.agregarBitacora(mensaje, evento.CREAR_TICKET);
-				/*caso 6 incompleto*/
+			/*caso 6 incompleto*/
 			case 6:
 				ticket.toString();
 				break;
@@ -67,8 +68,8 @@ public class Main {
 					System.out.println("Opcion invalida");
 				}
 				break;
-			}
 			
+			}
 		} while (opc!=0);
 	}
 
